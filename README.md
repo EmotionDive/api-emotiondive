@@ -4,13 +4,13 @@
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements of the project.
 ```bash
 py -m venv venv
-.venv\\Scripts\\activate
+.venv\Scripts\activate
 pip install -r requirements.txt
 ```
 ## Execution
 Run the following command.
 ```bash
-flask --app flaskr --debug run
+flask --app api --debug run
 ```
 Afterwards, just head to http://127.0.0.1:5000/hello for a greeting.
 ## Documentation
