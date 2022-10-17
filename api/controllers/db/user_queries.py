@@ -1,4 +1,4 @@
-from api.resources.db.db_connection import get_db
+from api.controllers.db.db_connection import get_db
 
 def insert_user(
     username: str, 

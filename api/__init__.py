@@ -1,21 +1,18 @@
-import os
 from flask import Flask
 from flask_restful import Api
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 
-def create_app(test_config=None):
+from .config import config_by_name
+
+db = SQLAlchemy()
+ma = Marshmallow()
+
+def create_app(config_name) -> Flask:
     # create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
-    api = Api(app)
-
-    if test_config is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        # load the test config if passed in
-        app.config.from_mapping(test_config)
-
-    # Load resources and stablish the URL
-    from api.resources.user import User
-    api.add_resource(User, '/User', '/User/<string:username>')
+    app = Flask(__name__)
+    app.config.from_object(config_by_name[config_name])
+    db.init_app(app)
+    ma.init_app(app)
 
     return app
