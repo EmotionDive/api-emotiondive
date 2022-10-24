@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ## Execution
 Run the following command.
 ```bash
-flask --app flaskr --debug run
+flask --debug run
 ```
 Afterwards, just head to http://127.0.0.1:5000/hello for a greeting.
 ## Documentation
