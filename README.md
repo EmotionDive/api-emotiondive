@@ -10,11 +10,16 @@ pip install -r requirements.txt
 ## Execution
 Run the following command.
 ```bash
-flask --app api --debug run
+flask --debug run
 ```
 Afterwards, just head to http://127.0.0.1:5000/hello for a greeting.
 ## Documentation
-Currently based on the Flask documentation, using an Application Factory. Refer to [Flask site](https://flask.palletsprojects.com/en/2.2.x/tutorial/views/) to learn about the Blueprints and Views that will be used.
+Currently based on the Flask-RESTful documentation. Refer to [Flask-RESTful site](https://flask-restful.readthedocs.io/en/latest/index.html) to learn about the usage in this project.
+
+For info related to flask-sqlalchemy check the [flask-sqlalchemy site](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/).
+
+For info related to flask-marshmallow check the [flask-mashmallow site](https://flask-marshmallow.readthedocs.io/en/latest/).
+
 ## Contributing
 Don't forget to run the following command if you install some libraries.
 ```bash
