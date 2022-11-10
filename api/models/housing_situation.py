@@ -7,13 +7,13 @@ class HousingSituation(db.Model):
     id_situacion_habitacional = db.Column(db.Integer, nullable=False, primary_key=True)
     descripcion = db.Column(db.String(128), nullable=False)
 
-    def __init__(self, id, descripcion):
-        self.id = id
+    def __init__(self, id_situacion_habitacional, descripcion):
+        self.id_situacion_habitacional = id_situacion_habitacional
         self.descripcion = descripcion
     
 class HousingSituationSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'descripcion')
+        fields = ('id_situacion_habitacional', 'descripcion')
 
 housing_situation_schema = HousingSituationSchema()
 housing_situations_schema = HousingSituationSchema(many=True)
