@@ -22,7 +22,7 @@ def create_user(
     except Exception as e:
         response_obj = {
             "status": "fail",
-            "message": "An error occurred."
+            "message": str(e)
         }
         return response_obj, 401
 
@@ -33,7 +33,7 @@ def read_user(username):
     except Exception as e:
         response_obj = {
             "status": "fail",
-            "message": "I am error"
+            "message": str(e)
         }
         return response_obj, 401
 
@@ -50,6 +50,6 @@ def delete_user(username):
     except Exception as e:
         response_obj = {
             "status": "fail",
-            "message": "An error occurred."
+            "message": str(e)
         }
         return response_obj, 401
