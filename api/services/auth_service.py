@@ -28,16 +28,17 @@ def get_auth_flags(email):
     Funtion to return auth flags given an user conditions
     """
     auth_flags = {'is_registered' : False, 'is_active' : False, 'is_first_time' : False}
-    auth_response = get_auth_user(email)
+    ## auth_response = get_auth_user(email)
 
     try:
         ### Validation that the email has been registered at Auth0
-        if len(auth_response) == 1:
-            auth_flags['is_registered'] = True
-            
+        ## if len(auth_response) == 1:
+        ##    auth_flags['is_registered'] = True
+
         ### Validation that the account is actually active on Emotion Dive
         user_query = User.query.filter_by(correo=email).first()
         if user_query is not None:
+            auth_flags['is_registered'] = True
             if user_query.active_account == 'ACT':
                 auth_flags['is_active'] = True
 
