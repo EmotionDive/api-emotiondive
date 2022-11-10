@@ -16,4 +16,4 @@ class HousingSituationSchema(ma.Schema):
         fields = ('id', 'descripcion')
 
 housing_situation_schema = HousingSituationSchema()
-housing_situation_schema = HousingSituationSchema(many=True)
+housing_situations_schema = HousingSituationSchema(many=True)
