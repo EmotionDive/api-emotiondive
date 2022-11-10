@@ -4,7 +4,7 @@
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements of the project.
 ```bash
 py -m venv venv
-.venv\Scripts\activate
+.\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 ## Execution
