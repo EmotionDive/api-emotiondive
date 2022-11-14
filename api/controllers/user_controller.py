@@ -7,8 +7,7 @@ class Users(Resource):
     Resource for general access to users of Emotion Dive
     """
     def get(self, username):
-        response_obj = read_user(username)
-        return response_obj
+        return read_user(username)
         
     def post(self, username):
         email = request.json["email"]
@@ -31,6 +30,11 @@ class Users(Resource):
         
 
     def delete(self, username):
-        response_obj = delete_user(username)
-        return response_obj
+        return delete_user(username)
         
+class Username(Resource):
+    """
+    Resource to validate an username
+    """
+    def get(self, username):
+        return validate_username(username)

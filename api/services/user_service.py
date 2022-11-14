@@ -25,7 +25,7 @@ def create_user(
         db.session.add(new_user)
         db.session.commit()
         response_obj = {
-            "status": "Success",
+            "status": "success",
             "message": "User successfully created."
         }
         return response_obj, 200
@@ -53,9 +53,32 @@ def delete_user(username):
         db.session.delete(user_obj)
         db.session.commit()
         response_obj = {
-            "status": "Success",
+            "status": "success",
             "message": "User successfully deleted."
         }
+        return response_obj, 200
+    except Exception as e:
+        response_obj = {
+            "status": "fail",
+            "message": str(e)
+        }
+        return response_obj, 400
+
+def validate_username(username):
+    try:
+        user = User.query.get(username)
+        if user:
+            response_obj = {
+                "status": "success",
+                "username_state": "occupied",
+                "message": "Username state verified successfully."
+            }
+        else:
+            response_obj = {
+                "status": "success",
+                "username_state": "available",
+                "message": "Username state verified successfully."
+            }
         return response_obj, 200
     except Exception as e:
         response_obj = {
