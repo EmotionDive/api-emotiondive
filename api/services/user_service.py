@@ -1,30 +1,40 @@
+import secrets
 from .. import db
-from ..models.user import User, user_schema, users_schema
+from ..models.user import User, user_schema
 
 def create_user(
     username, 
     correo, 
+    nombre,
     edad, 
     sexo, 
     estado_civil, 
-    id_situacion_habitacional, 
-    active_account
+    id_situacion_habitacional
 ):
     try:
-        new_user = User(username, correo, edad, sexo, estado_civil, id_situacion_habitacional, active_account)
+        active_account = secrets.token_hex(16)
+        new_user = User(username, 
+            correo, 
+            nombre, 
+            edad, 
+            sexo, 
+            estado_civil, 
+            id_situacion_habitacional, 
+            active_account
+        )
         db.session.add(new_user)
         db.session.commit()
         response_obj = {
             "status": "Success",
             "message": "User successfully created."
         }
-        return response_obj, 201
+        return response_obj, 200
     except Exception as e:
         response_obj = {
             "status": "fail",
             "message": str(e)
         }
-        return response_obj, 401
+        return response_obj, 400
 
 def read_user(username):
     try:
@@ -35,7 +45,7 @@ def read_user(username):
             "status": "fail",
             "message": str(e)
         }
-        return response_obj, 401
+        return response_obj, 400
 
 def delete_user(username):
     try:
@@ -52,4 +62,4 @@ def delete_user(username):
             "status": "fail",
             "message": str(e)
         }
-        return response_obj, 401
+        return response_obj, 400

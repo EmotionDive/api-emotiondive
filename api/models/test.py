@@ -45,6 +45,7 @@ class TestSchema(ma.Schema):
             'fecha', 
             'autoconocimiento', 
             'autoregulacion', 
+            'autoeficacia',
             'empatia'
         )
 

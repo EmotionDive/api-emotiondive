@@ -12,13 +12,21 @@ class Users(Resource):
         
     def post(self, username):
         email = request.json["email"]
+        name = request.json["name"]
         age = request.json["age"]
         sex = request.json["sex"]
         civil_status = request.json["civil_status"]
         housing_situation = request.json["housing_situation"]
-        active_account = request.json["active_account"]
 
-        response_obj = create_user(username, email, age, sex, civil_status, housing_situation, active_account)
+        response_obj = create_user(
+            username, 
+            email, 
+            name, 
+            age, 
+            sex, 
+            civil_status, 
+            housing_situation
+        )
         return response_obj
         
 
