@@ -8,8 +8,7 @@
   </head>
   <body
     style="
-      display: flex;
-      flex-direction: column;
+      display: table;
       height: 100%;
       width: 100%;
       margin: 0;
@@ -26,7 +25,7 @@
         style="width: auto; max-height: 36px; display: block; margin: auto"
       />
     </header>
-    <main style="flex-grow: 1; display: flex; flex-direction: column">
+    <main>
       <img
         src="https://drive.google.com/uc?export=view&id=1bMPn_rlFn9Rz5pzp8KdwoqDHc6_VOSWW"
         alt="EmotionDive Logo"
@@ -44,10 +43,11 @@
           width: 100%;
           max-width: 90vw;
           font-weight: 400;
+          margin-bottom: 80px;
         "
       >
         <p>
-          Hola <b>{{name}}</b>, te hemos mandado este correo porque haz
+          Hola <b>{{name}}!</b>, te hemos mandado este correo porque haz
           decidido trabajar tu Inteligencia Emocional con nosotros.
         </p>
         <p>
@@ -65,21 +65,23 @@
             display: block;
           "
         >
-          <span
+        <span
             style="
-              background: #9c64ef;
-              box-shadow: 0px 4px 15px rgba(156, 100, 239, 0.25);
-              border-radius: 27px;
-              color: #fff;
-              height: 60px;
-              width: 370px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-weight: 600;
+            background: #9c64ef;
+            box-shadow: 0px 4px 15px rgba(156, 100, 239, 0.25);
+            border-radius: 27px;
+            color: #fff;
+            height: 60px;
+            width: 370px;
+            display: block;
+            font-weight: 600;
+            padding: 12px 19px;
+            box-sizing: border-box;
+            text-align: center;
             "
-            >Activar cuenta
-          </span>
+        >
+            <span style="vertical-align: middle"> Activar cuenta </span>
+        </span>
         </a>
       </div>
     </main>
