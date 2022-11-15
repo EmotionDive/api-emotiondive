@@ -28,7 +28,6 @@ def get_auth_flags(email):
     Funtion to return auth flags given an user conditions
     """
     auth_flags = {'is_registered' : False, 'is_active' : False, 'is_first_time' : False}
-    ## auth_response = get_auth_user(email)
 
     try:
         ## Validation that the account is actually active on Emotion Dive

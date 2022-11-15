@@ -30,8 +30,16 @@ def create_app(config_name='dev') -> Flask:
 
     # endpoints of the API
     api_rest.add_resource(Users, '/users', '/users/<string:username>')
-    api_rest.add_resource(Username, '/username_state', '/username_state/<string:username>')
-    api_rest.add_resource(MailVerification, '/verify_mail', '/verify_mail/<string:username>')
+    api_rest.add_resource(
+        Username, 
+        '/verification/username_state', 
+        '/verification/username_state/<string:username>'
+    )
+    api_rest.add_resource(
+        MailVerification, 
+        '/verification/verify_mail', 
+        '/verification/verify_mail/<string:username>'
+    )
     api_rest.add_resource(Authorize, '/authorize', '/authorize/<string:email>')
     api_rest.add_resource(HousingSituationCatalog, '/housing_situations')
 
