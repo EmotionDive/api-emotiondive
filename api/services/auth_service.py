@@ -1,8 +1,8 @@
 import http.client
 import json
 from .. import db
-from ..models.user import User, user_schema
-from ..models.test import Test, test_schema
+from ..models.user import User
+from ..models.test import Test
 
 def get_auth_user(email):
     """
