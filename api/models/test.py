@@ -1,6 +1,7 @@
 from .. import db, ma
 from .user import User
 
+
 class Test(db.Model):
     """ Test Model to store user's test results """
     __tablename__ = "test"
