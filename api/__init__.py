@@ -38,7 +38,7 @@ def create_app(config_name='dev') -> Flask:
     api_rest.add_resource(
         MailVerification, 
         '/verification/verify_mail', 
-        '/verification/verify_mail/<string:username>'
+        '/verification/verify_mail/<string:email>'
     )
     api_rest.add_resource(Authorize, '/authorize', '/authorize/<string:email>')
     api_rest.add_resource(HousingSituationCatalog, '/housing_situations')

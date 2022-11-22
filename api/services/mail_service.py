@@ -3,9 +3,9 @@ from flask import current_app
 from .. import email, db
 from ..models.user import User
 
-def send_mail(username):
+def send_mail(user_email):
     try:
-        user = User.query.get(username)
+        user = User.query.filter_by(correo=user_email).first()
         verification_token = jwt.encode(
             {
                 "email": user.correo,
@@ -19,7 +19,7 @@ def send_mail(username):
             html_template="verify_email.html",
             body_params={
                 "name": user.nombre,
-                "username": username,
+                "username": user.username,
                 "url": "http://localhost:3000/activeAccount?code=" + verification_token
             }
         )
@@ -35,9 +35,9 @@ def send_mail(username):
         }
         return response_obj, 400
     
-def verify_token(username, mail_token):
+def verify_token(user_email, mail_token):
     try:
-        user = User.query.get(username)
+        user = User.query.filter_by(correo=user_email).first()
         dec_token = jwt.decode(
             mail_token, 
             current_app.config["SECRET_KEY"],

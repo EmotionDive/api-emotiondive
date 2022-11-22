@@ -6,9 +6,9 @@ class MailVerification(Resource):
     """
     Resource to verify an user's account
     """
-    def get(self, username):
-        return send_mail(username)
+    def get(self, email):
+        return send_mail(email)
         
-    def post(self, username):
+    def post(self, email):
         verification_code = request.json["code"]
-        return verify_token(username, verification_code)
+        return verify_token(email, verification_code)
