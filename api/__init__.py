@@ -26,6 +26,7 @@ def create_app(config_name='dev') -> Flask:
     from api.controllers.user_controller import Users, Username
     from api.controllers.auth_controller import Authorize
     from api.controllers.mail_controller import MailVerification
+    from api.controllers.test_controller import Tests
     from api.controllers.housing_situation_controller import HousingSituationCatalog
 
     # endpoints of the API
@@ -39,6 +40,11 @@ def create_app(config_name='dev') -> Flask:
         MailVerification, 
         '/verification/verify_mail', 
         '/verification/verify_mail/<string:email>'
+    )
+    api_rest.add_resource(
+        Tests, 
+        '/test', 
+        '/test/<string:username>'
     )
     api_rest.add_resource(Authorize, '/authorize', '/authorize/<string:email>')
     api_rest.add_resource(HousingSituationCatalog, '/housing_situations')
