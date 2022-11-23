@@ -14,7 +14,7 @@ def save_test_IE(answers, username):
         final_grade_autoconocimiento = autoconocimiento_grade(answers_changed)
         final_grade_autoregulacion = autoregulacion_grade(answers_changed)
         final_grade_empatia = empatia_grade(answers_changed)
-        final_grade_autoeficiencia = autoeficiencia_grade(answers_changed)
+        final_grade_autoeficiencia = autoeficacia_grade(answers_changed)
         
         new_test = Test(
             username, 

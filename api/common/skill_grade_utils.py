@@ -64,21 +64,21 @@ def autoregulacion_grade(answers_changed):
     else:
         return final_grade
 
-def autoeficiencia_grade(answers_changed):
+def autoeficacia_grade(answers_changed):
     ## Autoeficacia
-    answers_autoeficiencia = []
+    answers_autoeficacia = []
     final_grade=0
-    answers_autoeficiencia.append(answers_changed[1])
-    answers_autoeficiencia.append(answers_changed[4])
-    answers_autoeficiencia.append(answers_changed[6])
-    answers_autoeficiencia.append(answers_changed[9])
-    answers_autoeficiencia.append(answers_changed[31])
-    answers_autoeficiencia.append(answers_changed[35])
-    answers_autoeficiencia.append(answers_changed[46])
-    answers_autoeficiencia.append(answers_changed[48])
-    answers_autoeficiencia.append(answers_changed[50])
-    answers_autoeficiencia.append(answers_changed[54])
-    for iteration in answers_autoeficiencia:
+    answers_autoeficacia.append(answers_changed[1])
+    answers_autoeficacia.append(answers_changed[4])
+    answers_autoeficacia.append(answers_changed[6])
+    answers_autoeficacia.append(answers_changed[9])
+    answers_autoeficacia.append(answers_changed[31])
+    answers_autoeficacia.append(answers_changed[35])
+    answers_autoeficacia.append(answers_changed[46])
+    answers_autoeficacia.append(answers_changed[48])
+    answers_autoeficacia.append(answers_changed[50])
+    answers_autoeficacia.append(answers_changed[54])
+    for iteration in answers_autoeficacia:
         final_grade+= iteration
     final_grade = (100*final_grade)/50
     if final_grade <= 20:
