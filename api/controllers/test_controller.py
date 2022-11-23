@@ -10,5 +10,6 @@ class Tests(Resource):
         return get_statistics(username)
 
     def post(self, username):
-        answers = request.json["answers"]
+        answers = [5 for i in range(56)]
+        # answers = request.json["answers"]
         return save_test_IE(answers, username)

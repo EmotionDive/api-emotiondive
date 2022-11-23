@@ -9,8 +9,8 @@ def get_grade(answers):
             answers[x] = 4
         elif answers[x]==4:
             answers[x] = 2
-        elif answers[x]==1:
-            answers[x] = 5   
+        elif answers[x]==5:
+            answers[x] = 1   
     return(answers)
 
 def autoconocimiento_grade(answers_changed):
@@ -36,7 +36,10 @@ def autoconocimiento_grade(answers_changed):
     for iteration in answers_autoconocimiento:
         sum_grade+= iteration
     final_grade = (100*sum_grade)/80
-    return final_grade
+    if final_grade <= 20:
+        return 0
+    else:
+        return final_grade
 
 def autoregulacion_grade(answers_changed):
     ## Autoregulacion
@@ -56,7 +59,10 @@ def autoregulacion_grade(answers_changed):
     for iteration in answers_autoregulacion:
         sum_grade+= iteration
     final_grade = (100*sum_grade)/55
-    return final_grade
+    if final_grade <= 20:
+        return 0
+    else:
+        return final_grade
 
 def autoeficiencia_grade(answers_changed):
     ## Autoeficacia
@@ -74,7 +80,11 @@ def autoeficiencia_grade(answers_changed):
     answers_autoeficiencia.append(answers_changed[54])
     for iteration in answers_autoeficiencia:
         final_grade+= iteration
-    return final_grade
+    final_grade = (100*final_grade)/50
+    if final_grade <= 20:
+        return 0
+    else:
+        return final_grade
 
 def empatia_grade(answers_changed):
     ## Empatia
@@ -91,5 +101,9 @@ def empatia_grade(answers_changed):
     answers_empatia.append(answers_changed[43])
     for iteration in answers_empatia:
         final_grade+=iteration
-    return final_grade
+    final_grade = (100*final_grade)/45
+    if final_grade <= 20:
+        return 0
+    else:
+        return final_grade
 
