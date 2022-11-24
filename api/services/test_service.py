@@ -56,7 +56,14 @@ def get_statistics(username):
             for skill in skills:
                 aux_obj[skill] = {}
                 aux_obj[skill]['grade'] = test[skill]
-                aux_obj[skill]['message'] = defining_grades_autoconocimiento(test[skill])
+                if skill == 'autoconocimiento':
+                    aux_obj[skill]['message'] = defining_grades_autoconocimiento(test[skill])
+                elif skill == 'autoregulacion':
+                    aux_obj[skill]['message'] = defining_grades_autoregulacion(test[skill])
+                elif skill == 'autoeficacia':
+                    aux_obj[skill]['message'] = defining_grades_autoeficacia(test[skill])
+                elif skill == 'empatia':
+                    aux_obj[skill]['message'] = defining_grades_empatia(test[skill])
             
             response_obj.append(aux_obj)
 

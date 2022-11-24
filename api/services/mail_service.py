@@ -44,25 +44,17 @@ def verify_token(mail_token):
             algorithms=["HS256"]
         )
         user = User.query.filter_by(correo=dec_token['email']).first()
-        aux_active_acount = user.active_account
         if dec_token['active_account'] == user.active_account:
-            
             user.active_account = 'ACTIVE'
             db.session.commit()
             response_obj = {
                 "status": "success",
-                "token_mail": dec_token['email'],
-                "received_token": dec_token['active_account'],
-                "DB_token": aux_active_acount,
                 "message": "User email address verified successfully."
             }
             return response_obj, 200
         else:
             response_obj = {
                 "status": "fail",
-                "token_mail": dec_token['email'],
-                "received_token": dec_token['active_account'],
-                "DB_token": aux_active_acount,
                 "message": "User email address couldn't be verified due to the token."
             }
             return response_obj, 400
