@@ -36,9 +36,9 @@ def create_user(
         }
         return response_obj, 400
 
-def read_user(username):
+def read_user(email):
     try:
-        user = User.query.get(username)
+        user = User.query.filter_by(correo=email).first()
         return user_schema.dump(user), 200
     except Exception as e:
         response_obj = {

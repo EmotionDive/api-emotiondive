@@ -35,15 +35,16 @@ def send_mail(user_email):
         }
         return response_obj, 400
     
-def verify_token(user_email, mail_token):
+def verify_token(mail_token):
     try:
-        user = User.query.filter_by(correo=user_email).first()
+        
         dec_token = jwt.decode(
             mail_token, 
             current_app.config["SECRET_KEY"],
             algorithms=["HS256"]
         )
-        if dec_token['email'] == user.correo and dec_token['active_account'] == user.active_account:
+        user = User.query.filter_by(correo=dec_token['email']).first()
+        if dec_token['active_account'] == user.active_account:
             user.active_account = 'ACTIVE'
             db.session.commit()
             response_obj = {

@@ -23,23 +23,29 @@ def create_app(config_name='dev') -> Flask:
     email.init_app(app) # instantiate of the redmail class
 
     # importing classes
-    from api.controllers.user_controller import Users, Username
+    from api.controllers.user_controller import UserCreation, UserInfo, Username
     from api.controllers.auth_controller import Authorize
-    from api.controllers.mail_controller import MailVerification
+    from api.controllers.mail_controller import VerifyMail
+    from api.controllers.verify_token_controller import TokenVerification
     from api.controllers.test_controller import Tests
     from api.controllers.housing_situation_controller import HousingSituationCatalog
 
     # endpoints of the API
-    api_rest.add_resource(Users, '/users', '/users/<string:username>')
+    api_rest.add_resource(UserCreation, '/users', '/users/<string:username>')
+    api_rest.add_resource(UserInfo, '/get_user', '/get_user/<string:email>')
     api_rest.add_resource(
         Username, 
         '/verification/username_state', 
         '/verification/username_state/<string:username>'
     )
     api_rest.add_resource(
-        MailVerification, 
-        '/verification/verify_mail', 
-        '/verification/verify_mail/<string:email>'
+        VerifyMail, 
+        '/verification/send_verify_mail', 
+        '/verification/send_verify_mail/<string:email>'
+    )
+    api_rest.add_resource(
+        TokenVerification, 
+        '/verification/verify_token'
     )
     api_rest.add_resource(
         Tests, 

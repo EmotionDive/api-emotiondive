@@ -2,13 +2,10 @@ from flask import request
 from flask_restful import Resource
 from ..services.user_service import *
 
-class Users(Resource):
+class UserCreation(Resource):
     """
     Resource for general access to users of Emotion Dive
     """
-    def get(self, username):
-        return read_user(username)
-        
     def post(self, username):
         email = request.json["email"]
         name = request.json["name"]
@@ -32,6 +29,14 @@ class Users(Resource):
     def delete(self, username):
         return delete_user(username)
         
+class UserInfo(Resource):
+    """
+    Resource to get user information
+    """
+    def get(self, email):
+        return read_user(email)
+        
+
 class Username(Resource):
     """
     Resource to validate an username
