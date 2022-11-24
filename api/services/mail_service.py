@@ -45,10 +45,14 @@ def verify_token(mail_token):
         )
         user = User.query.filter_by(correo=dec_token['email']).first()
         if dec_token['active_account'] == user.active_account:
+            aux_active_acount = user.active_account
             user.active_account = 'ACTIVE'
             db.session.commit()
             response_obj = {
                 "status": "success",
+                "token_mail": dec_token['email'],
+                "received_token": dec_token['active_account'],
+                "DB_token": aux_active_acount,
                 "message": "User email address verified successfully."
             }
             return response_obj, 200
