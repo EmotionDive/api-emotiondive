@@ -28,6 +28,7 @@ def create_app(config_name='dev') -> Flask:
     from api.controllers.mail_controller import VerifyMail
     from api.controllers.verify_token_controller import TokenVerification
     from api.controllers.test_controller import Tests
+    from api.controllers.competences_controller import Competences, RemainingCompetences
     from api.controllers.housing_situation_controller import HousingSituationCatalog
 
     # endpoints of the API
@@ -35,12 +36,10 @@ def create_app(config_name='dev') -> Flask:
     api_rest.add_resource(UserInfo, '/get_user', '/get_user/<string:email>')
     api_rest.add_resource(
         Username, 
-        '/verification/username_state', 
         '/verification/username_state/<string:username>'
     )
     api_rest.add_resource(
         VerifyMail, 
-        '/verification/send_verify_mail', 
         '/verification/send_verify_mail/<string:email>'
     )
     api_rest.add_resource(
@@ -49,10 +48,17 @@ def create_app(config_name='dev') -> Flask:
     )
     api_rest.add_resource(
         Tests, 
-        '/test', 
         '/test/<string:username>'
     )
-    api_rest.add_resource(Authorize, '/authorize', '/authorize/<string:email>')
+    api_rest.add_resource(
+        Competences, 
+        '/competences/<string:username>'
+    )
+    api_rest.add_resource(
+        RemainingCompetences, 
+        '/competences/undone/<string:username>'
+    )
+    api_rest.add_resource(Authorize, '/authorize/<string:email>')
     api_rest.add_resource(HousingSituationCatalog, '/housing_situations')
 
     return app
