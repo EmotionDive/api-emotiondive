@@ -316,3 +316,167 @@ VALUES (8,9);
 INSERT 
 INTO actividad_siguiente
 VALUES (9,10);
+
+# Autoregulación
+INSERT
+INTO actividad
+VALUES (11,"¿Cómo me autorregulo?", 
+"Descubre cómo analizas situaciones en tu entorno y cómo es que actúas frente a ellas.\nSe te presentarán varios ejemplos de situaciones que pueden ocurrir en tu vida diaria y deberás elegir cómo es que tu actuarías frente a dichas situaciones.",
+"Deberás de realizar esta actividad una vez y se te retroalimentará en cada respuesta que des.",
+"Al completar esta actividad podrás observar cómo es que te autoregulas en este punto y comprender mejor tu área de mejora.",
+1,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (12,"Estrategias de Autorregulación", 
+"Aprende cuáles son las diferentes estrategias de autorregulación que puedes usar a tu favor.\nSe te mostrarán 2 estrategias que pueden serte de utilidad para lograr autoregularte frente a diversas situaciones de tu vida diaria.",
+"Deberás de realizar esta actividad 1 vez en tu plan semanal.",
+"Al completar esta actividad conocerás cómo funcionan estas estrategias y cómo puedes aplicarlas.",
+1,
+'00:10:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (13,"Aprende a usar las estrategias", 
+"Descubre cómo aplicar las estrategias de distracción y reevaluación en diversas situaciones.\nAhora que conoces las estrategias, se te plantearan situaciones para ambas estrategias y deberás elegir la acción que represente de mejor manera el uso de la estrategia.",
+"Deberás de realizar esta actividad 2 veces en tu plan semanal y se te retroalimentará a medida que contestes.",
+"Al completar esta actividad habrás identificado el cómo se usa cada estrategia en situaciones ejemplo.",
+2,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (14,"Usa las estrategias en ti", 
+"Analiza situaciones de tu vida diaria e identifica cómo es que podrías usar alguna de las estrategias a tu favor.\nDeberás redactar una situación que te haya sucedido en el pasado o en tu presente y posteriormente, elegir una de las estrategias y escribir cómo la aplicarías para regularte emocionalmente.",
+"Deberás de realizar esta actividad 4 veces en tu plan semanal para ejercitar el uso de las estrategias.",
+"Al completar esta actividad tendrás más comprensión de las estrategias y te será más fácil llevarlas a tu vida diaria en tus situaciones futuras.",
+4,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (15,"Autorregulación a prueba", 
+"Después de practicar tu autorregulación, llegó el momento de ponerte aprueba con diversas situaciones.\nSe te plantearan nuevas situaciones donde podrás seleccionar un modo de actuar usando cualquier de las dos estrategias.",
+"Deberás de realizar 2 veces esta actividad y en cada ocasión para completarse deberás de haber obtenido un puntaje perfecto.",
+"Al completar esta actividad habrás puesto a prueba lo aprendido en las anteriores actividades y lograrás una comprensión mas profunda de la autorregulación.",
+2,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (11,12);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (12,13);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (13,14);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (14,15);
+
+# Autoeficacia
+INSERT
+INTO actividad
+VALUES (16,"Decisiones razón-emoción", 
+"Desarrollar autoeficacia, conlleva el reconocer las capacidades que tenemos individualmente y aprender a tener confianza en ellas para lograr los objetivos que se tienen a largo, mediano y corto plazo.\nSe presentaran escenarios en los que se deberá de diferenciar entre razón () y emoción, tendrás que elegir entre lo que es una emoción o la razón dentro del escenario.",
+"Debes realizar esta actividad un mínimo de dos veces durante distintos planes semanales, en esta actividad deberá realizar una lista con las razones para la toma de una decisión, realizando una comparativa de las actividades para decidir finalmente que decisión tomara.",
+"Completar esta actividad refuerza el diferenciar entre un hecho que ocurre a partir de mis capacidades, reconocer como tomar la mejor decisión en función de mis capacidades y no tomar decisiones en función de las emociones.",
+2,
+'00:05:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (17,"Decisiones propias “Razón & Emoción”", 
+"Reforzara los conocimientos adquiridos en la actividad Decisiones “Razón & Emoción”, se trabajara en la toma de decisiones de manera asertiva, descomponiendo las razones y emociones.",
+"Deberas plantear una situación propia que tenga dos posibles opciones, posteriormente deberás descomponer ambas opciones en razones y emociones.",
+"Completando esta actividad será capaz de descomponer situaciones que se presentan en el día a día en razón y emociones, aprendiendo a actuar en función de tus capacidades y generando un buen balance.",
+2,
+'00:10:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (18,"¿Qué harías ante estas situaciones?", 
+"Reflexiona en tu forma de actuar con las situaciones. Siempre es bueno conocer más puntos de vista diferentes a lo que consideramos correcto. \nMuchas veces perdemos la oportunidad de tomar una mejor decisión por auto sabotearnos de distintas maneras, la mejor decisión no es fácil de tomar pero siempre trae beneficios.",
+"Debes de realizar esta actividad tres veces en tu plan semanal. \nLa retroalimentación se da a medida que progreses en la actividad.",
+"Podrás tener más experiencia en cuanto a como lidiar con tus emociones en ciertas situaciones, ya sea para usarlas a tu favor o evitar el autosabotaje.",
+3,
+'00:10:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (19,"Éxitos y Fracasos", 
+"Reconoce tus éxitos y fracasos, aprende de cada uno de ellos y se consciente de ellos.\nDeberás de escribir el último éxito que recuerdes y el último fracaso para después contestar unas preguntas respecto a cada una de los eventos.",
+"Deberás realizar esta actividad 3 veces en tu plan semanal.",
+"Al completar esta actividad tendrás una mejor comprensión de tus éxitos y fracasos, ayudándote a ver cómo es que las emociones juegan un papel en ambos eventos.",
+3,
+'00:15:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (20,"Éxitos y Fracasos 2", 
+"¿Qué pasaría si donde tuviste éxito hubieras fallado?, o al revés. Descúbrelo en esta actividad.\nDeberás de plantearte la anterior pregunta tanto en tus éxitos como en tus fracasos y contestar unas preguntas con respecto a cada situación.",
+"Deberás realizar esta actividad 3 veces en tu plan semanal.",
+"Realizando esta actividad, desarrollarás la capacidad de ver el fracaso como una oportunidad, no como un problema, sino como algo beneficioso y conocer que el éxito no siempre es constante, así se gestionara el fracaso y el éxito en el día a día.",
+3,
+'00:15:00',
+4,
+FALSE,
+FALSE
+);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (16,17);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (17,18);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (18,19);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (19,20);
