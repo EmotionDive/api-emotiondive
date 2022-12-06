@@ -1,10 +1,5 @@
 from .. import db
 from datetime import datetime, timedelta
-from ..models.cognitive_competence import (
-    CognitiveCompetence,
-    cognitive_competence_schema,
-    cognitive_competences_schema
-)
 from ..models.activity import (
     Activity,
     activity_schema,
@@ -81,8 +76,7 @@ def get_weekly_plan(username):
         response_obj = {
             "status": "success",
             "deadline": str(plan_query.fecha_limit),
-            "activities": activities_list,
-            "message": "New weekly plan successfully created."
+            "activities": activities_list
         }
         return response_obj, 200
     except Exception as e:
