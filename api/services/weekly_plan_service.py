@@ -1,5 +1,11 @@
 from .. import db
 from datetime import datetime, timedelta
+from ..models.cognitive_competence import (
+    CognitiveCompetence, 
+    cognitive_competence_schema, 
+    cognitive_competences_schema
+)
+
 from ..models.activity import (
     Activity,
     activity_schema,
@@ -71,7 +77,16 @@ def get_weekly_plan(username):
 
         for content in plan_content_list:
             activity_query = Activity.query.get(content['id_actividad'])
-            activities_list.append(activity_schema.dump(activity_query))
+            activity_dict = activity_schema.dump(activity_query)
+
+            competence_query = CognitiveCompetence.query.get(activity_dict['id_competencia_cognitiva'])
+
+            activity_obj = {
+                "actividad": activity_dict, 
+                "competence": competence_query.competencia,
+                "progreso": content['progreso']
+            }
+            activities_list.append(activity_obj)
         
         response_obj = {
             "status": "success",
