@@ -22,10 +22,10 @@ class Activity(db.Model):
     )
     competencia_cognitiva = db.relationship(
         "CognitiveCompetence", 
-        backref=db.backref("competencia_cognitiva", uselist=False)
+        backref=db.backref("competencia_actividad", uselist=False)
     )
-    advertencia_bandera = db.Column(db.String(64), nullable=False)
-    offline_bandera = db.Column(db.String(64), nullable=False)
+    advertencia_bandera = db.Column(db.Boolean, nullable=False)
+    offline_bandera = db.Column(db.Boolean, nullable=False)
 
     def __init__(
         self, 
