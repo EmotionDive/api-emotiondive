@@ -58,4 +58,36 @@ def create_weekly_plan(username, activities):
         return response_obj, 400
 
 def get_weekly_plan(username):
-    pass
+    try:
+        # We query the 'plan_semanal' table and get the most recent plan of an user
+        plan_query = WeeklyPlan.query.filter_by(
+            username_usuario=username
+        ).order_by(
+            WeeklyPlan.fecha_limit.desc()
+        ).first()
+
+        # We query the 'contiene' table and get the associations of the weekly plan
+        plan_content_query = Contains.query.filter_by(
+            id_plan_semanal=plan_query.id_plan_semanal
+        ).all()
+        plan_content_list = multiple_contains_schema.dump(plan_content_query)
+
+        activities_list = []
+
+        for content in plan_content_list:
+            activity_query = Activity.query.get(content['id_actividad'])
+            activities_list.append(activity_schema.dump(activity_query))
+        
+        response_obj = {
+            "status": "success",
+            "deadline": str(plan_query.fecha_limit),
+            "activities": activities_list,
+            "message": "New weekly plan successfully created."
+        }
+        return response_obj, 200
+    except Exception as e:
+        response_obj ={
+            "Status" : "fail",
+            "message" : str(e)
+        } 
+        return response_obj, 400

@@ -10,5 +10,5 @@ class WeeklyPlan(Resource):
         activities = request.json["activities"]
         return create_weekly_plan(username, activities)
     
-    def post(self, username):
+    def get(self, username):
         return get_weekly_plan(username)
