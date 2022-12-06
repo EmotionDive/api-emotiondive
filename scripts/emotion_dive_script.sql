@@ -234,3 +234,85 @@ VALUES (3,4);
 INSERT 
 INTO actividad_siguiente
 VALUES (4,5);
+
+# Autoconocimiento
+INSERT
+INTO actividad
+VALUES (6,"Identificación de emociones faciales", 
+"Interpreta las emociones que representan las imágenes en función de las 5 emociones que representa MATEA (Miedo, Alegría, Tristeza, Enojo y Afecto).\nEn cada una de ellas deberás de aprender a reconocer tus propias gesticulaciones con las presentadas, desarrollando tu capacidad de reconocer emociones en otros, con el propósito de posteriormente ser capaz de identificar tus propias emociones.",
+"Se te presentaran 5 imágenes, cada una de ellas representa una emoción distinta, tu trabajo será identificar cual imagen representa la emoción correcta, recuerda que trabajaremos bajo la tabla de MATEA, la cual contempla 5 emociones (Miedo, Alegría, Tristeza, Enojo y Afecto).\nDeberás de realizar esta actividad 5 veces.",
+"Al realizar este ejercicio con imágenes de rostros que representan el estado emocional, serás capaz de reconocer las emociones que presentan los demás en distintas situaciones del día a día.",
+5,
+'00:10:00',
+2,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (7,"Emociones en la vida diaria", 
+"Descubre si eres capaz de distinguir que emociones comúnmente se desprenden en diferentes contextos.\nA partir de varias situaciones que se te plantearan, deberás elegir que emoción podría desprenderse ante esa situación (Miedo, Alegría, Tristeza, Enojo, Afecto).",
+"Deberás de realizar esta actividad tres veces y se te retroalimentará en cada respuesta que des.",
+"Podrás reconocer qué emociones normalmente se generan en situaciones comunes y, cuando te pasen en la vida real, razones qué es lo que estas sintiendo y tomes como experiencia lo que identificaste en esta actividad.",
+3,
+'00:10:00',
+2,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (8,"¿Asigno bien mis emociones?", 
+"Averigua si eres capaz de identificar qué emociones sientes en este momento o sentiste en el pasado.\nTendrás que redactar algo que estés viviendo en estos momentos o algo que te impactó mucho en el pasado (alguna situación o problemática) y, con base en eso, elige qué emociones sentiste en ese momento y después responde cuál es la razón posible de que hayas sentido esa emoción.",
+"Deberás de realizar esta actividad 5 veces.",
+"Al realizar este ejercicio con situaciones propias lograrás ser más consciente de que existen esas emociones en ti y, sobre todo, razonarás el porqué sientes esas emociones.",
+5,
+'00:15:00',
+2,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (9,"Reconocimiento de emociones", 
+"Identifica como tu muestras tus emociones y cuales son las similitudes y diferencias con la forma en la que otras personas muestran emociones.",
+"Debes de realizar esta actividad una vez en tu plan semanal y sera una actividad totalmente autoreflexiva.",
+"Al completar esta actividad podrás reconocer de mejor manera la forma en que muestras tus emociones.",
+1,
+'00:15:00',
+2,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (10,"¿Qué me gusta?", 
+"Realmente ¿sabemos que nos gusta?, muchas veces olvidamos que nos gusta de nosotros mismos…\nLlevamos una vida tan a prisa que no nos cuestionamos acerca de lo que nos gusta, incluso lo que nos desagrada, cuestionarnos acerca de lo que nos agrada y desagrada de nosotros mismos, nos ayuda a realizar estrategias para mejorar, sin olvidar que también es importante aceptarnos por quienes somos.",
+"Se te presentara una lista de opciones con respecto a lo que te gusta de ti, en donde deberás de seleccionar al menos una opción con respecto a algún atributo que posees, de igual manera deberás de seleccionar alguna opción que englobe algo que no te gusta de ti, por último define una estrategia que puedas realizar con tus acciones para mejorar en esos aspectos.\nDeberás de realizar esta actividad 2 veces.",
+"Al realizar esta actividad desarrollaras la capacidad de reconocer tus virtudes, pero también cuestiones que quizá no sean de tu agrado, además de desarrollar estrategias para obtener resultados en aquello que consideras un área de oportunidad en ti.",
+3,
+'00:10:00',
+2,
+FALSE,
+TRUE
+);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (6,7);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (7,8);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (8,9);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (9,10);
