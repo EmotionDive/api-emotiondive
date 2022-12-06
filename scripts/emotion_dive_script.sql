@@ -145,7 +145,7 @@ VALUES (2, "Autoconocimiento");
 
 INSERT 
 INTO competencia_cognitiva (id_competencia_cognitiva, competencia) 
-VALUES (3, "Autoregulacion");
+VALUES (3, "Autorregulacion");
 
 INSERT 
 INTO competencia_cognitiva (id_competencia_cognitiva, competencia) 
@@ -316,3 +316,86 @@ VALUES (8,9);
 INSERT 
 INTO actividad_siguiente
 VALUES (9,10);
+
+# Autorregulación
+INSERT
+INTO actividad
+VALUES (11,"¿Cómo me autorregulo?", 
+"Descubre cómo analizas situaciones en tu entorno y cómo es que actúas frente a ellas.\nSe te presentarán varios ejemplos de situaciones que pueden ocurrir en tu vida diaria y deberás elegir cómo es que tu actuarías frente a dichas situaciones.",
+"Deberás de realizar esta actividad una vez y se te retroalimentará en cada respuesta que des.",
+"Al completar esta actividad podrás observar cómo es que te autoregulas en este punto y comprender mejor tu área de mejora.",
+1,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (12,"Estrategias de Autorregulación", 
+"Aprende cuáles son las diferentes estrategias de autorregulación que puedes usar a tu favor.\nSe te mostrarán 2 estrategias que pueden serte de utilidad para lograr autoregularte frente a diversas situaciones de tu vida diaria.",
+"Deberás de realizar esta actividad 1 vez en tu plan semanal.",
+"Al completar esta actividad conocerás cómo funcionan estas estrategias y cómo puedes aplicarlas.",
+1,
+'00:10:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (13,"Aprende a usar las estrategias", 
+"Descubre cómo aplicar las estrategias de distracción y reevaluación en diversas situaciones.\nAhora que conoces las estrategias, se te plantearan situaciones para ambas estrategias y deberás elegir la acción que represente de mejor manera el uso de la estrategia.",
+"Deberás de realizar esta actividad 2 veces en tu plan semanal y se te retroalimentará a medida que contestes.",
+"Al completar esta actividad habrás identificado el cómo se usa cada estrategia en situaciones ejemplo.",
+2,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (14,"Usa las estrategias en ti", 
+"Analiza situaciones de tu vida diaria e identifica cómo es que podrías usar alguna de las estrategias a tu favor.\nDeberás redactar una situación que te haya sucedido en el pasado o en tu presente y posteriormente, elegir una de las estrategias y escribir cómo la aplicarías para regularte emocionalmente.",
+"Deberás de realizar esta actividad 4 veces en tu plan semanal para ejercitar el uso de las estrategias.",
+"Al completar esta actividad tendrás más comprensión de las estrategias y te será más fácil llevarlas a tu vida diaria en tus situaciones futuras.",
+4,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (15,"Autorregulación a prueba", 
+"Después de practicar tu autorregulación, llegó el momento de ponerte aprueba con diversas situaciones.\nSe te plantearan nuevas situaciones donde podrás seleccionar un modo de actuar usando cualquier de las dos estrategias.",
+"Deberás de realizar 2 veces esta actividad y en cada ocasión para completarse deberás de haber obtenido un puntaje perfecto.",
+"Al completar esta actividad habrás puesto a prueba lo aprendido en las anteriores actividades y lograrás una comprensión mas profunda de la autorregulación.",
+2,
+'00:15:00',
+3,
+FALSE,
+TRUE
+);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (11,12);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (12,13);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (13,14);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (14,15);
+
