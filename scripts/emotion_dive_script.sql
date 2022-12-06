@@ -429,7 +429,7 @@ TRUE
 INSERT
 INTO actividad
 VALUES (18,"¿Qué harías ante estas situaciones?", 
-"Reflexiona en tu forma de actuar con las situaciones. Siempre es bueno conocer más puntos de vista diferentes a lo que consideramos correcto. \nMuchas veces perdemos la oportunidad de tomar una mejor decisión por auto sabotearnos de distintas maneras, la mejor decisión no es fácil de tomar pero siempre trae beneficios.",
+"Reflexiona en tu forma de actuar con las situaciones.\nSiempre es bueno conocer más puntos de vista diferentes a lo que consideramos correcto. \nMuchas veces perdemos la oportunidad de tomar una mejor decisión por auto sabotearnos de distintas maneras, la mejor decisión no es fácil de tomar pero siempre trae beneficios.",
 "Debes de realizar esta actividad tres veces en tu plan semanal. \nLa retroalimentación se da a medida que progreses en la actividad.",
 "Podrás tener más experiencia en cuanto a como lidiar con tus emociones en ciertas situaciones, ya sea para usarlas a tu favor o evitar el autosabotaje.",
 3,

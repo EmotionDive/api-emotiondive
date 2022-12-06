@@ -20,7 +20,10 @@ def get_competence_activities(competences):
 
             # We query the "actividad" table to get all the activities that belong to the same competence
             activities_query = Activity.query.filter_by(id_competencia_cognitiva=competence_id).all()
-            aux_obj = {competence: activities_schema.dump(activities_query)}
+            aux_obj = {
+                "competence": competence,
+                "activities": activities_schema.dump(activities_query)
+            }
             
             competence_activities.append(aux_obj)
 
