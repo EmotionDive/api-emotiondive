@@ -145,7 +145,7 @@ VALUES (2, "Autoconocimiento");
 
 INSERT 
 INTO competencia_cognitiva (id_competencia_cognitiva, competencia) 
-VALUES (3, "Autorregulacion");
+VALUES (3, "Autoregulacion");
 
 INSERT 
 INTO competencia_cognitiva (id_competencia_cognitiva, competencia) 
@@ -317,7 +317,7 @@ INSERT
 INTO actividad_siguiente
 VALUES (9,10);
 
-# Autorregulación
+# Autoregulación
 INSERT
 INTO actividad
 VALUES (11,"¿Cómo me autorregulo?", 
@@ -399,3 +399,84 @@ INSERT
 INTO actividad_siguiente
 VALUES (14,15);
 
+# Autoeficacia
+INSERT
+INTO actividad
+VALUES (16,"Decisiones razón-emoción", 
+"Desarrollar autoeficacia, conlleva el reconocer las capacidades que tenemos individualmente y aprender a tener confianza en ellas para lograr los objetivos que se tienen a largo, mediano y corto plazo.\nSe presentaran escenarios en los que se deberá de diferenciar entre razón () y emoción, tendrás que elegir entre lo que es una emoción o la razón dentro del escenario.",
+"Debes realizar esta actividad un mínimo de dos veces durante distintos planes semanales, en esta actividad deberá realizar una lista con las razones para la toma de una decisión, realizando una comparativa de las actividades para decidir finalmente que decisión tomara.",
+"Completar esta actividad refuerza el diferenciar entre un hecho que ocurre a partir de mis capacidades, reconocer como tomar la mejor decisión en función de mis capacidades y no tomar decisiones en función de las emociones.",
+2,
+'00:05:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (17,"Decisiones propias “Razón & Emoción”", 
+"Reforzara los conocimientos adquiridos en la actividad Decisiones “Razón & Emoción”, se trabajara en la toma de decisiones de manera asertiva, descomponiendo las razones y emociones.",
+"Deberas plantear una situación propia que tenga dos posibles opciones, posteriormente deberás descomponer ambas opciones en razones y emociones.",
+"Completando esta actividad será capaz de descomponer situaciones que se presentan en el día a día en razón y emociones, aprendiendo a actuar en función de tus capacidades y generando un buen balance.",
+2,
+'00:10:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (18,"¿Qué harías ante estas situaciones?", 
+"Reflexiona en tu forma de actuar con las situaciones. Siempre es bueno conocer más puntos de vista diferentes a lo que consideramos correcto. \nMuchas veces perdemos la oportunidad de tomar una mejor decisión por auto sabotearnos de distintas maneras, la mejor decisión no es fácil de tomar pero siempre trae beneficios.",
+"Debes de realizar esta actividad tres veces en tu plan semanal. \nLa retroalimentación se da a medida que progreses en la actividad.",
+"Podrás tener más experiencia en cuanto a como lidiar con tus emociones en ciertas situaciones, ya sea para usarlas a tu favor o evitar el autosabotaje.",
+3,
+'00:10:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (19,"Éxitos y Fracasos", 
+"Reconoce tus éxitos y fracasos, aprende de cada uno de ellos y se consciente de ellos.\nDeberás de escribir el último éxito que recuerdes y el último fracaso para después contestar unas preguntas respecto a cada una de los eventos.",
+"Deberás realizar esta actividad 3 veces en tu plan semanal.",
+"Al completar esta actividad tendrás una mejor comprensión de tus éxitos y fracasos, ayudándote a ver cómo es que las emociones juegan un papel en ambos eventos.",
+3,
+'00:15:00',
+4,
+FALSE,
+TRUE
+);
+
+INSERT
+INTO actividad
+VALUES (20,"Éxitos y Fracasos 2", 
+"¿Qué pasaría si donde tuviste éxito hubieras fallado?, o al revés. Descúbrelo en esta actividad.\nDeberás de plantearte la anterior pregunta tanto en tus éxitos como en tus fracasos y contestar unas preguntas con respecto a cada situación.",
+"Deberás realizar esta actividad 3 veces en tu plan semanal.",
+"Realizando esta actividad, desarrollarás la capacidad de ver el fracaso como una oportunidad, no como un problema, sino como algo beneficioso y conocer que el éxito no siempre es constante, así se gestionara el fracaso y el éxito en el día a día.",
+3,
+'00:15:00',
+4,
+FALSE,
+FALSE
+);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (16,17);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (17,18);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (18,19);
+
+INSERT 
+INTO actividad_siguiente
+VALUES (19,20);
