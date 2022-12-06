@@ -19,17 +19,15 @@ class WeeklyPlan(db.Model):
         "User", 
         backref=db.backref("usuario_plan", uselist=False)
     )
-    fecha = db.Column(db.DateTime, nullable=False)
+    fecha_limit = db.Column(db.DateTime, nullable=False)
 
     def __init__(
         self, 
-        id_plan_semanal,
         username_usuario,
-        fecha
+        fecha_limit
     ):
-        self.id_plan_semanal = id_plan_semanal
         self.username_usuario = username_usuario
-        self.fecha = fecha
+        self.fecha_limit = fecha_limit
     
 class WeeklyPlanSchema(ma.Schema):
     class Meta:
@@ -40,4 +38,4 @@ class WeeklyPlanSchema(ma.Schema):
         )
 
 weekly_plan_schema = WeeklyPlanSchema()
-weekly_plan_schema = WeeklyPlanSchema(many=True)
+weekly_plans_schema = WeeklyPlanSchema(many=True)

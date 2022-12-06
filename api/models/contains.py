@@ -30,7 +30,8 @@ class Contains(db.Model):
     id_plan_semanal = db.Column(
         db.String(512), 
         db.ForeignKey('plan_semanal.id_plan_semanal'),
-        nullable=False
+        nullable=False,
+        primary_key=True
     )
     plan_semanal = db.relationship(
         "WeeklyPlan", 
