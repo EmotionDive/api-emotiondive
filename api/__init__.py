@@ -29,6 +29,7 @@ def create_app(config_name='dev') -> Flask:
     from api.controllers.verify_token_controller import TokenVerification
     from api.controllers.test_controller import Tests
     from api.controllers.competences_controller import Competences, RemainingCompetences
+    from api.controllers.activity_controller import ActivitiesDescription
     from api.controllers.housing_situation_controller import HousingSituationCatalog
 
     # endpoints of the API
@@ -53,6 +54,10 @@ def create_app(config_name='dev') -> Flask:
     api_rest.add_resource(
         Competences, 
         '/competences/<string:username>'
+    )
+    api_rest.add_resource(
+        ActivitiesDescription, 
+        '/activities/description'
     )
     api_rest.add_resource(
         RemainingCompetences, 
