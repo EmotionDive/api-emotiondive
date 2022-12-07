@@ -97,3 +97,24 @@ def get_weekly_plan(username):
         "activities": activities_list
     }
     return response_obj, 200
+
+def increase_activity_progress(username, activity_id):
+    plan_query = WeeklyPlan.query.filter_by(
+        username_usuario=username
+    ).order_by(
+        WeeklyPlan.fecha_limit.desc()
+    ).first()
+
+    plan_activity = Contains.query.get((
+        username, 
+        activity_id, 
+        plan_query.id_plan_semanal
+    ))
+    plan_activity.progreso = plan_activity.progreso + 1
+    db.session.commit()
+
+    response_obj = {
+        "status": "success",
+        "message": "Activity progress saved."
+    }
+    return response_obj, 200
