@@ -59,44 +59,41 @@ def create_weekly_plan(username, activities):
         return response_obj, 400
 
 def get_weekly_plan(username):
-    try:
-        # We query the 'plan_semanal' table and get the most recent plan of an user
-        plan_query = WeeklyPlan.query.filter_by(
-            username_usuario=username
-        ).order_by(
-            WeeklyPlan.fecha_limit.desc()
-        ).first()
+    # We query the 'plan_semanal' table and get the most recent plan of an user
+    plan_query = WeeklyPlan.query.filter_by(
+        username_usuario=username
+    ).order_by(
+        WeeklyPlan.fecha_limit.desc()
+    ).first()
 
-        # We query the 'contiene' table and get the associations of the weekly plan
-        plan_content_query = Contains.query.filter_by(
-            id_plan_semanal=plan_query.id_plan_semanal
-        ).all()
-        plan_content_list = multiple_contains_schema.dump(plan_content_query)
+    # We query the 'contiene' table and get the associations of the weekly plan
+    plan_content_query = Contains.query.filter_by(
+        id_plan_semanal=plan_query.id_plan_semanal
+    ).all()
+    plan_content_list = multiple_contains_schema.dump(plan_content_query)
 
-        activities_list = []
+    activities_list = []
 
-        for content in plan_content_list:
-            activity_query = Activity.query.get(content['id_actividad'])
-            activity_dict = activity_schema.dump(activity_query)
+    for content in plan_content_list:
+        activity_query = Activity.query.get(content['id_actividad'])
+        activity_dict = activity_schema.dump(activity_query)
 
-            competence_query = CognitiveCompetence.query.get(activity_dict['id_competencia_cognitiva'])
+        competence_query = CognitiveCompetence.query.get(activity_dict['id_competencia_cognitiva'])
+        competence_dict = cognitive_competence_schema.dump(competence_query)
 
-            activity_obj = {
-                "actividad": activity_dict, 
-                "competence": competence_query.competencia,
-                "progreso": content['progreso']
-            }
-            activities_list.append(activity_obj)
-        
-        response_obj = {
-            "status": "success",
-            "deadline": str(plan_query.fecha_limit),
-            "activities": activities_list
+
+
+        activity_obj = {
+            "actividad": activity_dict, 
+            "competence": competence_dict['competencia'],
+            "progreso": content['progreso'],
+            "done_flag": True if activity_dict['numero_realizaciones'] == content['progreso'] else False
         }
-        return response_obj, 200
-    except Exception as e:
-        response_obj ={
-            "Status" : "fail",
-            "message" : str(e)
-        } 
-        return response_obj, 400
+        activities_list.append(activity_obj)
+    
+    response_obj = {
+        "status": "success",
+        "deadline": str(plan_query.fecha_limit),
+        "activities": activities_list
+    }
+    return response_obj, 200
