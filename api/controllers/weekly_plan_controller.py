@@ -10,5 +10,12 @@ class WeeklyPlan(Resource):
         activities = request.json["activities"]
         return create_weekly_plan(username, activities)
     
-    def post(self, username):
+    def get(self, username):
         return get_weekly_plan(username)
+
+class ActivityProgress(Resource):
+    """
+    Resource to update the activity progress within the weekly plan of an user
+    """
+    def post(self, username, activity_id):
+        return increase_activity_progress(username, activity_id)

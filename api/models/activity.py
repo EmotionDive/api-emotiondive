@@ -14,6 +14,7 @@ class Activity(db.Model):
     descripcion = db.Column(db.String(1024), nullable=False)
     instrucciones = db.Column(db.String(1024), nullable=False)
     beneficios = db.Column(db.String(1024), nullable=False)
+    numero_realizaciones = db.Column(db.Integer, nullable=False)
     tiempo_estimado = db.Column(db.Time, nullable=False)
     id_competencia_cognitiva = db.Column(
         db.Integer, 
@@ -34,6 +35,7 @@ class Activity(db.Model):
         descripcion,
         instrucciones,
         beneficios,
+        numero_realizaciones,
         tiempo_estimado,
         id_competencia_cognitiva,
         advertencia_bandera,
@@ -44,6 +46,7 @@ class Activity(db.Model):
         self.descripcion = descripcion
         self.instrucciones = instrucciones
         self.beneficios = beneficios
+        self.numero_realizaciones = numero_realizaciones
         self.tiempo_estimado = tiempo_estimado
         self.id_competencia_cognitiva = id_competencia_cognitiva
         self.advertencia_bandera = advertencia_bandera
@@ -57,6 +60,7 @@ class ActivitySchema(ma.Schema):
             'descripcion', 
             'instrucciones', 
             'beneficios', 
+            'numero_realizaciones',
             'tiempo_estimado', 
             'id_competencia_cognitiva',
             'advertencia_bandera',

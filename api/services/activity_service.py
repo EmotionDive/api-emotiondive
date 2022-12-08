@@ -29,8 +29,7 @@ def get_competence_activities(competences):
 
         response_obj = {
             "status": "success",
-            "competence_activities": competence_activities,
-            "message": "Competences successfully registered."
+            "competence_activities": competence_activities
         }
         return response_obj, 200
     except Exception as e:
