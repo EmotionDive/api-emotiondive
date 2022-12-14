@@ -145,7 +145,7 @@ VALUES (2, "Autoconocimiento");
 
 INSERT 
 INTO competencia_cognitiva (id_competencia_cognitiva, competencia) 
-VALUES (3, "Autorregulacion");
+VALUES (3, "Autorregulación");
 
 INSERT 
 INTO competencia_cognitiva (id_competencia_cognitiva, competencia) 
