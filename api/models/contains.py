@@ -37,6 +37,7 @@ class Contains(db.Model):
         "WeeklyPlan", 
         backref=db.backref("plan_semanal", uselist=False)
     )
+    ultima_realizacion = db.Column(db.DateTime)
     progreso = db.Column(db.Integer, nullable=False)
 
     def __init__(
@@ -44,12 +45,14 @@ class Contains(db.Model):
         username_usuario,
         id_actividad,
         id_plan_semanal,
+        ultima_realizacion,
         progreso
 
     ):
         self.id_plan_semanal = id_plan_semanal
         self.id_actividad = id_actividad
         self.username_usuario = username_usuario
+        self.ultima_realizacion = ultima_realizacion
         self.progreso = progreso
     
 class ContainsSchema(ma.Schema):
@@ -58,6 +61,7 @@ class ContainsSchema(ma.Schema):
             'id_plan_semanal',
             'username_usuario',
             'id_actividad',
+            'ultima_realizacion',
             'progreso'
         )
 

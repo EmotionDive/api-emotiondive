@@ -9,6 +9,11 @@ from ..models.activity import (
     activity_schema,
     activities_schema
 )
+from ..models.next_activity import (
+    NextActivity,
+    next_activity_schema,
+    next_activities_schema
+)
 
 def get_competence_activities(competences):
     try:
@@ -20,18 +25,40 @@ def get_competence_activities(competences):
 
             # We query the "actividad" table to get all the activities that belong to the same competence
             activities_query = Activity.query.filter_by(id_competencia_cognitiva=competence_id).all()
-            aux_obj = {
+            activities = activities_schema.dump(activities_query)
+
+            activities_list = []
+
+            for activity in activities:
+                
+                next_activity_query = NextActivity.query.get(activity['id_actividad'])
+                
+                if next_activity_query != None:
+                    aux_activity_obj = {
+                        "activity": activity,
+                        "next_activity": next_activity_query.id_actividad_siguiente
+                    }
+                else:
+                    aux_activity_obj = {
+                        "activity": activity,
+                        "next_activity": None
+                    }
+                
+                activities_list.append(aux_activity_obj)
+
+            aux_response_obj = {
                 "competence": competence,
-                "activities": activities_schema.dump(activities_query)
+                "activities": activities_list
             }
             
-            competence_activities.append(aux_obj)
+            competence_activities.append(aux_response_obj)
 
         response_obj = {
             "status": "success",
             "competence_activities": competence_activities
         }
         return response_obj, 200
+    
     except Exception as e:
         response_obj ={
             "Status" : "fail",

@@ -30,7 +30,7 @@ def create_app(config_name='dev') -> Flask:
     from api.controllers.test_controller import Tests
     from api.controllers.competences_controller import Competences, RemainingCompetences
     from api.controllers.activity_controller import ActivitiesDescription
-    from api.controllers.weekly_plan_controller import WeeklyPlan, ActivityProgress
+    from api.controllers.weekly_plan_controller import WeeklyPlan, ActivityProgress, ActivityRealization
     from api.controllers.housing_situation_controller import HousingSituationCatalog
 
     # endpoints of the API
@@ -67,6 +67,10 @@ def create_app(config_name='dev') -> Flask:
     api_rest.add_resource(
         ActivityProgress, 
         '/weekly_plan/<string:username>/activity_progress/<int:activity_id>'
+    )
+    api_rest.add_resource(
+        ActivityRealization, 
+        '/weekly_plan/<string:username>/activity_realization/<int:activity_id>'
     )
     api_rest.add_resource(
         RemainingCompetences, 

@@ -19,3 +19,14 @@ class ActivityProgress(Resource):
     """
     def post(self, username, activity_id):
         return increase_activity_progress(username, activity_id)
+
+class ActivityRealization(Resource):
+    """
+    Resource to update and get activities' last realization during a weekly plan
+    """
+    def post(self, username, activity_id):
+        return update_last_realization(username, activity_id)
+
+    def get(self, username, activity_id):
+        return get_last_realization(username, activity_id)
+

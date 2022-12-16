@@ -92,6 +92,7 @@ CREATE TABLE contiene
 	username_usuario VARCHAR(512) NOT NULL,
     id_actividad INTEGER NOT NULL,
     id_plan_semanal INTEGER NOT NULL,
+    ultima_realizacion DATETIME,
     progreso INTEGER NOT NULL,
     FOREIGN KEY (username_usuario) 
     REFERENCES usuario (username),
