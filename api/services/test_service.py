@@ -1,6 +1,6 @@
 from .. import db
 from ..models.test import Test, test_schema, tests_schema
-from datetime import date
+from datetime import datetime
 from ..common.statistics_cases_utils import *
 from ..common.skill_grade_utils import *
 
@@ -9,7 +9,7 @@ def save_test_IE(answers, username):
     Function to save the grade of the cognitive competence based on the ID
     """
     try:
-        test_date = date.today()
+        test_date = datetime.now()
         answers_changed = get_grade(answers)
         final_grade_autoconocimiento = autoconocimiento_grade(answers_changed)
         final_grade_autoregulacion = autoregulacion_grade(answers_changed)
