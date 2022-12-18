@@ -14,6 +14,12 @@ from ..models.next_activity import (
     next_activity_schema,
     next_activities_schema
 )
+from ..models.contains import (
+    Contains,
+    contains_schema,
+    multiple_contains_schema
+)
+
 
 def get_competence_activities(competences):
     try:
@@ -64,4 +70,39 @@ def get_competence_activities(competences):
             "Status" : "fail",
             "message" : str(e)
         } 
-        return response_obj, 400
+        return response_obj, 400 
+
+def get_activities_by_user(username):
+    try:
+        activities_by_user_query = Contains.query.with_entities(
+            Contains.id_actividad,
+            Contains.progreso
+        ).filter_by(
+            username_usuario=username
+        ).all()
+
+        progress_by_user = multiple_contains_schema.dump(activities_by_user_query)
+        aux_activities_obj = []
+
+        for activity_progress in progress_by_user:
+            activities_query = Activity.query.with_entities(
+                Activity.numero_realizaciones
+            ).filter_by(
+                id_actividad=activity_progress['id_actividad']
+            ).one()
+
+            if activities_query.numero_realizaciones == activity_progress['progreso']:
+                aux_activities_obj.append(activity_progress['id_actividad'])
+
+        response_obj = {
+            "status": "success",
+            "activities_by_user": aux_activities_obj
+        }
+
+        return response_obj, 200
+    except Exception as e:
+        response_obj ={
+            "Status" : "fail",
+            "message" : str(e)
+        } 
+        return response_obj, 400 
