@@ -29,8 +29,16 @@ def create_app(config_name='dev') -> Flask:
     from api.controllers.verify_token_controller import TokenVerification
     from api.controllers.test_controller import Tests
     from api.controllers.competences_controller import Competences, RemainingCompetences
-    from api.controllers.activity_controller import ActivitiesDescription, ActivitiesByUser
-    from api.controllers.weekly_plan_controller import WeeklyPlan, ActivityProgress, ActivityRealization
+    from api.controllers.activity_controller import (
+        ActivitiesDescriptionByCompetence, 
+        CompetenceCompletedByUser,
+        CompletedByUser
+    )
+    from api.controllers.weekly_plan_controller import (
+        WeeklyPlan, 
+        ActivityProgress, 
+        ActivityRealization
+    )
     from api.controllers.housing_situation_controller import HousingSituationCatalog
 
     # endpoints of the API
@@ -57,12 +65,16 @@ def create_app(config_name='dev') -> Flask:
         '/competences/<string:username>'
     )
     api_rest.add_resource(
-        ActivitiesDescription, 
-        '/activities/by_competence/description'
+        ActivitiesDescriptionByCompetence, 
+        '/activities/description/by_competence'
     )
     api_rest.add_resource(
-        ActivitiesByUser, 
-        '/activities/by_user/<string:username>/completed'
+        CompetenceCompletedByUser, 
+        '/activities/competence_completed/by_user/<string:username>'
+    )
+    api_rest.add_resource(
+        CompletedByUser, 
+        '/activities/completed/by_user/<string:username>'
     )
     api_rest.add_resource(
         WeeklyPlan, 

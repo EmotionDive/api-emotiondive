@@ -20,6 +20,57 @@ from ..models.contains import (
     multiple_contains_schema
 )
 
+## Helper functions
+
+def activities_by_competence(competence):
+    try:
+        # We query the 'competencia_cognitiva' table to get the ID of the given ompetences
+        competence_query = CognitiveCompetence.query.filter_by(competencia=competence).one()
+        competence_id = competence_query.id_competencia_cognitiva
+
+        # We query the "actividad" table to get all the activities that belong to the same competence
+        activities_query = Activity.query.filter_by(id_competencia_cognitiva=competence_id).all()
+        activities = activities_schema.dump(activities_query)
+
+        competence_activities = []
+
+        for activity in activities:
+            competence_activities.append(activity['id_actividad'])
+
+        return competence_activities
+    except Exception as e:
+        print(str(e))
+        return []
+
+def activities_completed_by_user(username):
+    try:
+        activities_by_user_query = Contains.query.with_entities(
+            Contains.id_actividad,
+            Contains.progreso
+        ).filter_by(
+            username_usuario=username
+        ).all()
+
+        progress_by_user = multiple_contains_schema.dump(activities_by_user_query)
+        activities_completed = []
+
+        for activity_progress in progress_by_user:
+            activities_query = Activity.query.with_entities(
+                Activity.numero_realizaciones
+            ).filter_by(
+                id_actividad=activity_progress['id_actividad']
+            ).one()
+
+            if activities_query.numero_realizaciones == activity_progress['progreso']:
+                activities_completed.append(activity_progress['id_actividad'])
+
+        return activities_completed
+    except Exception as e:
+        print(str(e))
+        return []
+
+
+## Functions that return responses for the endpoints
 
 def get_competence_activities(competences):
     try:
@@ -72,33 +123,43 @@ def get_competence_activities(competences):
         } 
         return response_obj, 400 
 
-def get_activities_by_user(username):
-    try:
-        activities_by_user_query = Contains.query.with_entities(
-            Contains.id_actividad,
-            Contains.progreso
-        ).filter_by(
-            username_usuario=username
-        ).all()
 
-        progress_by_user = multiple_contains_schema.dump(activities_by_user_query)
-        aux_activities_obj = []
+def get_competences_finished(username, competences, test_flag=False):
+    user_completed = activities_completed_by_user(username)
+    competences_state = {}
 
-        for activity_progress in progress_by_user:
-            activities_query = Activity.query.with_entities(
-                Activity.numero_realizaciones
-            ).filter_by(
-                id_actividad=activity_progress['id_actividad']
-            ).one()
+    for competence in competences:
+        competence_activities = activities_by_competence(competence)
 
-            if activities_query.numero_realizaciones == activity_progress['progreso']:
-                aux_activities_obj.append(activity_progress['id_actividad'])
+        if set(user_completed) == set(competence_activities):
+            competences_state[competence] = {
+                "status": "complete"
+            }
+        else:
+            competences_state[competence] = {
+                "status": "incomplete"
+            }
 
+    if test_flag == True:
         response_obj = {
             "status": "success",
-            "activities_by_user": aux_activities_obj
+            "competences_state": competences_state,
+            "test_ready_flag": all(value ==  "complete" for value in competences_state.values())
         }
+    else:
+        response_obj = {
+            "status": "success",
+            "competences_state": competences_state
+        }
+    
+    return response_obj, 200
 
+def get_user_completed_activities(username):
+    try:
+        response_obj = {
+            "status": "success",
+            "activities_by_user": activities_completed_by_user(username)
+        }
         return response_obj, 200
     except Exception as e:
         response_obj ={

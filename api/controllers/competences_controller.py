@@ -4,11 +4,10 @@ from ..services.competences_service import *
 
 class Competences(Resource):
     """
-    Resource register and consult the selected comptences by the use
+    Resource to register and consult the selected comptences by the user
     """
     def get(self, username):
         return get_actual_competences(username)
-        
 
     def post(self, username):
         competences = request.json["competences"]
