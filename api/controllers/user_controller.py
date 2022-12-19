@@ -7,12 +7,12 @@ class UserCreation(Resource):
     Resource for general access to users of Emotion Dive
     """
     def post(self, username):
-        email = request.json["email"]
-        name = request.json["name"]
-        age = request.json["age"]
-        sex = request.json["sex"]
-        civil_status = request.json["civil_status"]
-        housing_situation = request.json["housing_situation"]
+        email = request.json.get("email", None)
+        name = request.json.get("name", None)
+        age = request.json.get("age", None)
+        sex = request.json.get("sex", None)
+        civil_status = request.json.get("civil_status", None)
+        housing_situation = request.json.get("housing_situation", None)
 
         response_obj = create_user(
             username, 

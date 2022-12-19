@@ -48,7 +48,6 @@ def get_actual_competences(username):
         response_obj = {
             "status": "success",
             "selected_competences": competences,
-            "message": "Competences successfully registered."
         }
         return response_obj, 200
     except Exception as e:

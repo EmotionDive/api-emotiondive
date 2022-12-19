@@ -10,7 +10,7 @@ class Competences(Resource):
         return get_actual_competences(username)
 
     def post(self, username):
-        competences = request.json["competences"]
+        competences = request.json.get("competences", None)
         return register_competences(username, competences)
 
 class RemainingCompetences(Resource):

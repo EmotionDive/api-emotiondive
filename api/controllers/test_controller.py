@@ -11,5 +11,5 @@ class Tests(Resource):
 
     def post(self, username):
         # answers = [5 for i in range(56)]
-        answers = request.json["answers"]
+        answers = request.json.get("answers", None)
         return save_test_IE(answers, username)

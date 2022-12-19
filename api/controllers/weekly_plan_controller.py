@@ -7,7 +7,7 @@ class WeeklyPlan(Resource):
     Resource to manipulate the weekly plan of an user
     """
     def post(self, username):
-        activities = request.json["activities"]
+        activities = request.json.get("activities", None)
         return create_weekly_plan(username, activities)
     
     def get(self, username):
