@@ -375,9 +375,9 @@ INSERT
 INTO actividad
 VALUES (15,"Autorregulación a prueba", 
 "Después de practicar tu autorregulación, llegó el momento de ponerte aprueba con diversas situaciones.\nSe te plantearan nuevas situaciones donde podrás seleccionar un modo de actuar usando cualquier de las dos estrategias.",
-"Deberás de realizar 2 veces esta actividad y en cada ocasión para completarse deberás de haber obtenido un puntaje perfecto.",
+"Deberás de realizar 1 vez esta actividad y para completarse deberás de haber obtenido un puntaje perfecto.",
 "Al completar esta actividad habrás puesto a prueba lo aprendido en las anteriores actividades y lograrás una comprensión mas profunda de la autorregulación.",
-2,
+1,
 '00:15:00',
 3,
 FALSE,
