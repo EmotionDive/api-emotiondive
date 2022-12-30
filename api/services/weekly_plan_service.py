@@ -115,6 +115,7 @@ def get_weekly_plan(username):
                     "next_activity": None,
                     "competence": competence_dict['competencia'],
                     "progreso": content['progreso'],
+                    "last_realization": content['ultima_realizacion'],
                     "done_flag": True if activity_dict['numero_realizaciones'] == content['progreso'] else False
                 }
 
