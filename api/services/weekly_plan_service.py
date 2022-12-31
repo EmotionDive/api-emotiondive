@@ -30,6 +30,7 @@ from ..models.next_activity import (
 def create_weekly_plan(username, activities):
     try:
         deadline = datetime.today() + timedelta(days=7)
+        deadline = deadline.replace(hour=23, minute=59, second=59, microsecond=999999)
         new_weekly_plan = WeeklyPlan(username_usuario=username, fecha_limit=deadline)
         db.session.add(new_weekly_plan)
         db.session.commit()
@@ -73,6 +74,15 @@ def get_weekly_plan(username):
             WeeklyPlan.fecha_limit.desc()
         ).first()
 
+        if not plan_query:
+            response_obj = {
+                "status": "success",
+                "deadline": "",
+                "activities": {},
+                "message": "User doesn't have any weekly plan associated."
+            }
+            return response_obj, 200
+
         # We query the 'contiene' table and get the associations of the weekly plan
         plan_content_query = Contains.query.filter_by(
             id_plan_semanal=plan_query.id_plan_semanal
@@ -105,6 +115,7 @@ def get_weekly_plan(username):
                     "next_activity": None,
                     "competence": competence_dict['competencia'],
                     "progreso": content['progreso'],
+                    "last_realization": content['ultima_realizacion'],
                     "done_flag": True if activity_dict['numero_realizaciones'] == content['progreso'] else False
                 }
 
@@ -113,7 +124,8 @@ def get_weekly_plan(username):
         response_obj = {
             "status": "success",
             "deadline": str(plan_query.fecha_limit),
-            "activities": activities_list
+            "activities": activities_list,
+            "message": "User latest weekly plan retrieved successfully."
         }
         return response_obj, 200
     except Exception as e:

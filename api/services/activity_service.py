@@ -130,8 +130,10 @@ def get_competences_finished(username, competences, test_flag=False):
 
     for competence in competences:
         competence_activities = activities_by_competence(competence)
+        print(competence)
+        print(competence_activities)
 
-        if set(user_completed) == set(competence_activities):
+        if set(competence_activities).issubset(user_completed):
             competences_state[competence] = {
                 "status": "complete"
             }
@@ -141,10 +143,16 @@ def get_competences_finished(username, competences, test_flag=False):
             }
 
     if test_flag == True:
+
+        if competences_state == {}:
+            flag = False
+        else:
+            flag = all(value ==  {'status': 'complete'} for value in competences_state.values())
+
         response_obj = {
             "status": "success",
             "competences_state": competences_state,
-            "test_ready_flag": all(value ==  "complete" for value in competences_state.values())
+            "test_ready_flag": flag
         }
     else:
         response_obj = {
