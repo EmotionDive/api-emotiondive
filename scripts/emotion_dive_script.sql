@@ -100,7 +100,7 @@ CREATE TABLE contiene
     REFERENCES actividad (id_actividad),
 	FOREIGN KEY (id_plan_semanal) 
     REFERENCES plan_semanal (id_plan_semanal),
-    PRIMARY KEY(username_usuario, id_actividad)
+    PRIMARY KEY(username_usuario, id_actividad, id_plan_semanal)
     
 );
 

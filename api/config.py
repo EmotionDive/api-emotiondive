@@ -14,8 +14,8 @@ class DevConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     EMAIL_HOST = gmail.host
     EMAIL_PORT = gmail.port
-    EMAIL_USERNAME = "facemaskadvice@gmail.com"
-    EMAIL_PASSWORD = "nwgdvtgqzsqrxxox"
+    EMAIL_USERNAME = "emotiondive2022@gmail.com"
+    EMAIL_PASSWORD = "etibcgyoykbklaio"
 
 class TestConfig(Config):
     DEBUG = True
@@ -25,18 +25,16 @@ class TestConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     EMAIL_HOST = gmail.host
     EMAIL_PORT = gmail.port
-    EMAIL_USERNAME = "facemaskadvice@gmail.com"
-    EMAIL_PASSWORD = "nwgdvtgqzsqrxxox"
-
-
+    EMAIL_USERNAME = "emotiondive2022@gmail.com"
+    EMAIL_PASSWORD = "etibcgyoykbklaio"
 
 class ProdConfig(Config):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@localhost/emotion_dive'
     EMAIL_HOST = gmail.host
     EMAIL_PORT = gmail.port
-    EMAIL_USERNAME = "facemaskadvice@gmail.com"
-    EMAIL_PASSWORD = "nwgdvtgqzsqrxxox"
+    EMAIL_USERNAME = "emotiondive2022@gmail.com"
+    EMAIL_PASSWORD = "etibcgyoykbklaio"
 
 
 

@@ -38,17 +38,34 @@ def create_weekly_plan(username, activities):
         plan_query = WeeklyPlan.query.filter_by(
             username_usuario=username
         ).order_by(
-            WeeklyPlan.fecha_limit.desc()
+            WeeklyPlan.id_plan_semanal.desc()
         ).first()
 
         for activity_id in activities:
-            new_plan_content = Contains(
-                username_usuario=username, 
-                id_plan_semanal=plan_query.id_plan_semanal, 
-                id_actividad=activity_id, 
-                ultima_realizacion=None,
-                progreso=0
-            )
+            prev_plan_content_query = Contains.query.filter_by(
+                username_usuario=username,
+                id_actividad=activity_id,
+                id_plan_semanal=(plan_query.id_plan_semanal - 1)
+            ).order_by(
+                Contains.id_plan_semanal.desc()
+            ).first()
+            
+            if prev_plan_content_query:
+                new_plan_content = Contains(
+                    username_usuario=username, 
+                    id_plan_semanal=plan_query.id_plan_semanal, 
+                    id_actividad=activity_id, 
+                    ultima_realizacion=prev_plan_content_query.ultima_realizacion,
+                    progreso=prev_plan_content_query.progreso
+                )
+            else:
+                new_plan_content = Contains(
+                    username_usuario=username, 
+                    id_plan_semanal=plan_query.id_plan_semanal, 
+                    id_actividad=activity_id, 
+                    ultima_realizacion=None,
+                    progreso=0
+                )
             db.session.add(new_plan_content)
             db.session.commit()
 
@@ -140,7 +157,7 @@ def increase_activity_progress(username, activity_id):
         plan_query = WeeklyPlan.query.filter_by(
             username_usuario=username
         ).order_by(
-            WeeklyPlan.fecha_limit.desc()
+            WeeklyPlan.id_plan_semanal.desc()
         ).first()
 
         plan_activity = Contains.query.get((
