@@ -10,7 +10,7 @@ class Config:
 
 class DevConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@localhost/emotion_dive'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Mexico123?@localhost/emotion_dive'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     EMAIL_HOST = gmail.host
     EMAIL_PORT = gmail.port
