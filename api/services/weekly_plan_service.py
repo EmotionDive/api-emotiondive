@@ -29,7 +29,7 @@ from ..models.next_activity import (
 
 def create_weekly_plan(username, activities):
     try:
-        deadline = datetime.today() + timedelta(days=7)
+        deadline = datetime.today() + timedelta(days=2)
         deadline = deadline.replace(hour=23, minute=59, second=59, microsecond=999999)
         new_weekly_plan = WeeklyPlan(username_usuario=username, fecha_limit=deadline)
         db.session.add(new_weekly_plan)
