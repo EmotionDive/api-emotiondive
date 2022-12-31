@@ -1,5 +1,6 @@
 from .. import db
 from datetime import date
+from datetime import datetime
 from ..models.user import User, user_schema
 from ..models.competences_selection import (
     CompetencesSelection, 
@@ -14,7 +15,7 @@ from ..models.cognitive_competence import (
 
 def register_competences(username, competences):
     try:
-        selection_date = date.today()
+        selection_date = datetime.now()
         for selected_competence in competences:
             competence = CognitiveCompetence.query.filter_by(competencia=selected_competence).one()
             new_competence_selected = CompetencesSelection(username, competence.id_competencia_cognitiva, selection_date)
