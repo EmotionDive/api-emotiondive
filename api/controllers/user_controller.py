@@ -4,7 +4,7 @@ from ..services.user_service import *
 
 class UserCreation(Resource):
     """
-    Resource for general access to users of Emotion Dive
+    Resource to create or delete users of the Emotion Dive DB
     """
     def post(self, username):
         email = request.json.get("email", None)
@@ -28,6 +28,21 @@ class UserCreation(Resource):
 
     def delete(self, username):
         return delete_user(username)
+        
+class UserUpdate(Resource):
+    """
+    Resource to update users info in Emotion Dive
+    """
+    def post(self, username):
+        civil_status = request.json.get("civil_status", None)
+        housing_situation = request.json.get("housing_situation", None)
+
+        response_obj = update_user(
+            username, 
+            civil_status, 
+            housing_situation
+        )
+        return response_obj
         
 class UserInfo(Resource):
     """
