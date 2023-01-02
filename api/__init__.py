@@ -40,6 +40,7 @@ def create_app(config_name='dev') -> Flask:
         ActivityRealization
     )
     from api.controllers.housing_situation_controller import HousingSituationCatalog
+    from api.controllers.special_activity_controller import SpecialAcitvity
 
     # endpoints of the API
     api_rest.add_resource(UserCreation, '/users/<string:username>')
@@ -95,5 +96,10 @@ def create_app(config_name='dev') -> Flask:
     )
     api_rest.add_resource(Authorize, '/authorize/<string:email>')
     api_rest.add_resource(HousingSituationCatalog, '/housing_situations')
+    api_rest.add_resource(
+        SpecialAcitvity, 
+        '/special_endpoints/activity_info/<string:username>',
+        '/special_endpoints/activity_info/<string:username>/<int:index>'
+    )
 
     return app

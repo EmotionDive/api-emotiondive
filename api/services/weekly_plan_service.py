@@ -1,5 +1,5 @@
 from .. import db
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 from ..models.cognitive_competence import (
     CognitiveCompetence, 
     cognitive_competence_schema, 
