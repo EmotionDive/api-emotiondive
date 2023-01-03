@@ -23,7 +23,7 @@ def create_app(config_name='dev') -> Flask:
     email.init_app(app) # instantiate of the redmail class
 
     # importing classes
-    from api.controllers.user_controller import UserCreation, UserInfo, Username
+    from api.controllers.user_controller import UserCreation, UserUpdate, UserInfo, Username
     from api.controllers.auth_controller import Authorize
     from api.controllers.mail_controller import VerifyMail
     from api.controllers.verify_token_controller import TokenVerification
@@ -40,10 +40,12 @@ def create_app(config_name='dev') -> Flask:
         ActivityRealization
     )
     from api.controllers.housing_situation_controller import HousingSituationCatalog
+    from api.controllers.special_activity_controller import SpecialAcitvity
 
     # endpoints of the API
-    api_rest.add_resource(UserCreation, '/users', '/users/<string:username>')
-    api_rest.add_resource(UserInfo, '/get_user', '/get_user/<string:email>')
+    api_rest.add_resource(UserCreation, '/users/<string:username>')
+    api_rest.add_resource(UserUpdate, '/update_user/<string:username>')
+    api_rest.add_resource(UserInfo, '/get_user/<string:email>')
     api_rest.add_resource(
         Username, 
         '/verification/username_state/<string:username>'
@@ -94,5 +96,10 @@ def create_app(config_name='dev') -> Flask:
     )
     api_rest.add_resource(Authorize, '/authorize/<string:email>')
     api_rest.add_resource(HousingSituationCatalog, '/housing_situations')
+    api_rest.add_resource(
+        SpecialAcitvity, 
+        '/special_endpoints/activity_info/<string:username>',
+        '/special_endpoints/activity_info/<string:username>/<int:index>'
+    )
 
     return app

@@ -1,6 +1,7 @@
 import secrets
 from .. import db
 from ..models.user import User, user_schema
+from ..models.housing_situation import HousingSituation, housing_situation_schema
 
 def create_user(
     username, 
@@ -40,6 +41,24 @@ def read_user(email):
     try:
         user = User.query.filter_by(correo=email).first()
         return user_schema.dump(user), 200
+    except Exception as e:
+        response_obj = {
+            "status": "fail",
+            "message": str(e)
+        }
+        return response_obj, 400
+
+def update_user(username, civil_status, id_situacion_habitacional):
+    try:
+        user = User.query.get(username)
+        user.estado_civil = civil_status
+        user.id_situacion_habitacional = id_situacion_habitacional
+        db.session.commit()
+        response_obj = {
+            "status": "success",
+            "message": "User successfully updated."
+        }
+        return response_obj, 200
     except Exception as e:
         response_obj = {
             "status": "fail",
