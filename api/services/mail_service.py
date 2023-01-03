@@ -20,7 +20,7 @@ def send_mail(user_email):
             body_params={
                 "name": user.nombre,
                 "username": user.username,
-                "url": "http://localhost:3000/activeAccount?code=" + verification_token
+                "url": "https://emotiondive.me/activeAccount?code=" + verification_token
             }
         )
         response_obj = {
