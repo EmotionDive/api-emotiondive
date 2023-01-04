@@ -14,7 +14,7 @@ def send_mail(user_email):
             algorithm="HS256"
         )
         email.send(
-            subject="Verify your Emotion Dive account!",
+            subject="¡Verifica tu cuenta de Emotion Dive!",
             receivers=[user.correo],
             html_template="verify_email.html",
             body_params={
